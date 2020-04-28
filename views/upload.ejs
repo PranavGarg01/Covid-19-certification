@@ -1,0 +1,55 @@
+<!-- Web3js library link -->
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+
+<script src="bundle.js"></script><!--To use Eth-Crypto library to decrypt data-->
+<script src="upload.js"></script><!--the js script for the page-->
+
+<!-- Bootstrap links below -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!-- The below form is just for demo. -->
+<!-- We could use values from the DB to show and get the hospitals approval before uploading -->
+<div class="container">
+<h2>Hospital Upload form</h2>
+<form class="form-horizontal" action="#">
+  <div class="form-group">
+    <label class="control-label col-sm-2" >Name:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="Enter username" name="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Admission date:</label>
+    <div class="col-sm-10">          
+      <input type="text" class="form-control" id="admDate" placeholder="Enter admission date" name="admDate">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Public Key:</label>
+    <div class="col-sm-10">          
+      <input type="text" class="form-control" id="pubKey" placeholder="public key" name="pubKey">
+    </div>
+  </div>
+  
+  <div class="form-group">        
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>Public Key<h4 id="pubKeyDisplay"></h4></label>
+        <label>Address<h4 id="addr"></h4></label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">        
+    <div class="col-sm-offset-2 col-sm-10">
+      <!-- below is the submit button-->
+      <button type="button" onclick="upload()" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+
+  

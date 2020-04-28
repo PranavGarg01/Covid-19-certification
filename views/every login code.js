@@ -1,0 +1,13 @@
+//below library is only used for encryption and decryption
+var EthCrypto = require('eth-crypto');
+
+//below two lines to connect to the blockchain using INFURA
+const url = 'https://ropsten.infura.io/v3/2263eef71b3f42e4bd6dc77debba5750';
+var web3 = new Web3(new Web3.providers.HttpProvider(url));
+
+function onsubmit() {
+   
+    var pwd = document.getElementById("pwd").value;// storing the password,our user types
+    web3.eth.accounts.wallet.load(pwd);// TODO : add username as the [,username]); option 
+    console.log("wallet loaded")
+}

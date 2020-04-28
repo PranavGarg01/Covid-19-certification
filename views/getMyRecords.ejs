@@ -1,0 +1,22 @@
+<!-- Web3js library link -->
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+
+<script src="bundle.js"></script><!--To use Eth-Crypto library to decrypt data-->
+<script src="getmyrecords.js"></script><!--the js script for the page-->
+
+<!-- Bootstrap links below -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+<h2 >Your records</h2>
+<div class="col-sm-6">   
+    <label>Please type in your password to get decrypt your wallet keys</label>       
+    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+</div>
+<button type="button" class="btn btn-dark btn-lg col-sm-3" onclick="display()">Display my record</button>
+<label id="report" class="col-sm-6"></label>
+</div>
