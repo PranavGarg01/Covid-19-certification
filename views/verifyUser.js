@@ -80,54 +80,32 @@ var contract = new web3.eth.Contract(abi,'0x3C1FB21A9B58E13796DbfAd83de1a2a07d53
 
 var report;// variable to store the report
 var privateKey;
-// the function below will run onClick of the display button
-// change the functionality according to the needs
-// or according to what the QR code library wants
+
 
 function display() {
-	//these 2 lines might be deleted later.
-	// bcz if the user is already logged in, then his wallet is already loaded in
-	// so we dont need to ask for his password again and load the wallet
-    var pwd = document.getElementById("pwd").value;// storing the password our user types
-    web3.eth.accounts.wallet.load(pwd);// TODO : add username as the [,username]); option 
+	
+    var userAddress = document.getElementById("addr").value;
+    web3.eth.accounts.wallet.create(1);
 
 
     var addr = web3.eth.accounts.wallet[0].address;// stores the user's address in a variable
 	privateKey = web3.eth.accounts.wallet[0].privateKey;
-	// calling the smart contract's getReport() function
-	// it returns the user's report in encrypted format
-    contract.methods.getReport().call(
+	
+
+    contract.methods.checkUser(userAddress).call(
         {from : addr})
         .then(function(result){
         console.log(result);
-        report = result;// the report is stored in --report-- variable
-        decryptt();// calling the decryptt function
+        if(result)
+        {
+            //green tick
+        }
+        else
+        {
+            //red tick
+        }
+        
     });
     
     
-}
-
-async function decryptt() {
-	//as the report cipher was in string format, it is convert back to an object
-    var encr = EthCrypto.cipher.parse(report);//to convert back to an object from string format
-    
-	//Eth-crypto library's decrypt function in use
-    await EthCrypto.decryptWithPrivateKey(privateKey, encr)
-    .then(
-        function(result)
-        {
-            console.log(result);
-			// the --result-- variable is the final report
-			// use it the way u want to, in QR code or display it to the user.
-            document.getElementById("report").innerHTML = result;
-			QRCode.toCanvas(
-				document.getElementById("canvas"),
-				result,
-				function (error) {
-					if (error) console.error(error);
-					console.log("succe	ss!");
-				}
-			);
-        }
-    );
 }
