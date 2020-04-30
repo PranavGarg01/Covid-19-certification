@@ -97,7 +97,7 @@ function upload() {
     // we retrieve it from out DB
 
 
-	//generating the user text from its pubKey
+	//generating the user address from its pubKey
 	addr = EthCrypto.publicKey.toAddress(pubKey);
 
 	// the report as an object
